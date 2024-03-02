@@ -32,8 +32,8 @@ class Dev(Configuration):
     # SECURITY WARNING: don't run with debug turned on in production!
     DEBUG = True
 
-    ALLOWED_HOSTS = values.ListValue(["localhost"])
-    X_FRAME_OPTIONS = "ALLOW-FROM localhost"
+    ALLOWED_HOSTS = values.ListValue(["localhost", "127.0.0.1"])
+    X_FRAME_OPTIONS = "ALLOW-FROM https://localhost:8000"
     CSRF_COOKIE_SAMESITE = None
     CSRF_TRUSTED_ORIGINS = ["http://localhost:8000"]
     CSRF_COOKIE_SECURE = True
@@ -51,6 +51,7 @@ class Dev(Configuration):
         "django.contrib.messages",
         "django.contrib.staticfiles",
         "movies",
+        "gh",
     ]
 
     MIDDLEWARE = [
