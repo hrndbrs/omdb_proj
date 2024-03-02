@@ -165,6 +165,10 @@ class Dev(Configuration):
     CELERY_RESULT_BACKEND = "django-db"
     CELERY_BROKER_URL = values.Value("redis://localhost:6379/0")
 
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+    ADMINS = [("admin", "admin@mail.com")]
+
 
 class Prod(Dev):
     DEBUG = False
